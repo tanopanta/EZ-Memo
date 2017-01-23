@@ -13,6 +13,7 @@ object Form1: TForm1
   OldCreateOrder = False
   StyleElements = [seFont, seClient]
   OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 24

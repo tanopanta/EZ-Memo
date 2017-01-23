@@ -186,3 +186,33 @@ void __fastcall TForm1::AddMemo(UnicodeString s)
 }
 
 
+void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
+{
+	if(Memo1->Modified){
+		if(inEditMode){
+		   switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
+				case mrYes:
+					ListBox1->Items->Strings[ListBox1->ItemIndex] = Memo1->Text;
+					break;
+				case mrNo:
+					break;
+				case mrCancel:
+					CanClose = false;
+					break;
+		   }
+	   }else{
+			switch(MessageDlgPos("変更を保存しますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
+				case mrYes:
+					AddMemo(Memo1->Text);
+					break;
+				case mrNo:
+					break;
+				case mrCancel:
+					CanClose = false;
+					break;
+		   }
+	   }
+	}
+}
+//---------------------------------------------------------------------------
+

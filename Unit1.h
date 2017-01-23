@@ -32,6 +32,7 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall ListBox1Click(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall Button5Click(TObject *Sender);
+	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 private:	// ユーザー宣言
 public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);
