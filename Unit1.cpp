@@ -40,8 +40,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 	if(Memo1->Text == ""){
 		return;
 	}
-	ListBox1->Items->Add(Memo1->Text);
-	SaveFile();
+	AddMemo(Memo1->Text);
 	NewMemo();
 }
 //---------------------------------------------------------------------------
@@ -73,8 +72,7 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 		}else{
 			switch(MessageDlgPos("変更を保存しますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
 			case mrYes:
-				ListBox1->Items->Add(Memo1->Text);
-				SaveFile();
+				AddMemo(Memo1->Text);
 				break;
 			case mrNo:
 				break;
@@ -134,8 +132,7 @@ void __fastcall TForm1::ListBox1Click(TObject *Sender)
 		   }else{
 				switch(MessageDlgPos("変更を保存しますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
 					case mrYes:
-						ListBox1->Items->Add(Memo1->Text);
-						SaveFile();
+						AddMemo(Memo1->Text);
 						break;
 					case mrNo:
 						break;
@@ -182,5 +179,10 @@ void __fastcall TForm1::NewMemo()
 	inEditMode = false;
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::AddMemo(UnicodeString s)
+{
+	ListBox1->Items->Insert(0,s);
+	SaveFile();
+}
 
 
