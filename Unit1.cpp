@@ -15,7 +15,7 @@ bool inEditMode = false;
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
 {
-	UnicodeString fName = "aaa.txt";
+	UnicodeString fName = "EZ_Memo.txt";
 	if(!(FileExists(fName))){
 	   THandle fp = FileCreate(fName);
 	   FileClose(fp);
@@ -97,7 +97,7 @@ void __fastcall TForm1::SaveFile()
 		for(int i = 0;i < ListBox1->Items->Count;i++){
 			sList->Add(ListBox1->Items->Strings[i]);
 		}
-		UnicodeString fName = "aaa.txt";
+		UnicodeString fName = "EZ_Memo.txt";
 		for(int i = 0;i < sList->Count;i++){
 			sList->Strings[i] = StringReplace(sList->Strings[i],"\r\n","kvnewr",TReplaceFlags()<<rfReplaceAll);
 		}
@@ -212,6 +212,22 @@ void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 					break;
 		   }
 	   }
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Action1Execute(TObject *Sender)
+{
+	Button3Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ActionSaveExecute(TObject *Sender)
+{
+	if(inEditMode){
+	   Button5Click(Sender);
+	}else{
+       Button1Click(Sender);
 	}
 }
 //---------------------------------------------------------------------------

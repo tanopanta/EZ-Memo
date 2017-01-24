@@ -25,6 +25,8 @@ __published:	// IDE で管理されるコンポーネント
 	TSplitter *Splitter1;
 	TButton *Button5;
 	TActionList *ActionList1;
+	TAction *Action1;
+	TAction *ActionSave;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
@@ -33,6 +35,8 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall Button5Click(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
+	void __fastcall Action1Execute(TObject *Sender);
+	void __fastcall ActionSaveExecute(TObject *Sender);
 private:	// ユーザー宣言
 public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);
