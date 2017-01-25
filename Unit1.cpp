@@ -53,6 +53,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	int res = MessageDlgPos("本当に削除しますか？",mtConfirmation, mbOKCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3);
 	if(res == mrOk){
 	   ListBox1->Items->Delete(ListBox1->ItemIndex);
+       NewMemo();
 	}
 }
 //---------------------------------------------------------------------------
@@ -158,7 +159,7 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-   if(!(Memo1->Text == "")){
+   if(!(Memo1->Text == "") && Memo1->Modified == true){
 	   switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbOKCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
 			case mrOk:
 				ListBox1->Items->Strings[ListBox1->ItemIndex] = Memo1->Text;
@@ -182,7 +183,7 @@ void __fastcall TForm1::NewMemo()
 void __fastcall TForm1::AddMemo(UnicodeString s)
 {
 	ListBox1->Items->Insert(0,s);
-	SaveFile();
+	//SaveFile();
 }
 
 
@@ -228,6 +229,28 @@ void __fastcall TForm1::ActionSaveExecute(TObject *Sender)
 	   Button5Click(Sender);
 	}else{
        Button1Click(Sender);
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::N1Click(TObject *Sender)
+{
+	Button2Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button4Click(TObject *Sender)
+{
+	if(ListBox1->ItemIndex >= 1){
+		ListBox1->Items->Exchange(ListBox1->ItemIndex - 1,ListBox1->ItemIndex);
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button6Click(TObject *Sender)
+{
+	if(ListBox1->ItemIndex < ListBox1->Count - 1 && ListBox1->ItemIndex != -1){
+		ListBox1->Items->Exchange(ListBox1->ItemIndex,ListBox1->ItemIndex+1);
 	}
 }
 //---------------------------------------------------------------------------

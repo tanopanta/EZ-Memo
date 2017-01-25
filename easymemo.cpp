@@ -14,7 +14,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		TStyleManager::TrySetStyle("Sapphire Kamri");
+		TStyleManager::TrySetStyle("Onyx Blue");
 		Application->CreateForm(__classid(TForm1), &Form1);
 		Application->Run();
 	}

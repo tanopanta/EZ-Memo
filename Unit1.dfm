@@ -34,7 +34,7 @@ object Form1: TForm1
     ScrollBars = ssVertical
     TabOrder = 1
     WantTabs = True
-    ExplicitHeight = 318
+    WordWrap = False
   end
   object Panel1: TPanel
     Left = 0
@@ -83,6 +83,24 @@ object Form1: TForm1
       TabOrder = 3
       OnClick = Button5Click
     end
+    object Button4: TButton
+      Left = 81
+      Top = 1
+      Width = 33
+      Height = 25
+      Caption = #8593
+      TabOrder = 4
+      OnClick = Button4Click
+    end
+    object Button6: TButton
+      Left = 111
+      Top = 1
+      Width = 33
+      Height = 25
+      Caption = #8595
+      TabOrder = 5
+      OnClick = Button6Click
+    end
   end
   object ListBox1: TListBox
     Left = 0
@@ -91,9 +109,9 @@ object Form1: TForm1
     Height = 338
     Align = alLeft
     ItemHeight = 24
+    PopupMenu = PopupMenu1
     TabOrder = 2
     OnClick = ListBox1Click
-    ExplicitHeight = 318
   end
   object ActionList1: TActionList
     Left = 312
@@ -107,6 +125,20 @@ object Form1: TForm1
       Caption = 'ActionSave'
       ShortCut = 16467
       OnExecute = ActionSaveExecute
+    end
+    object EditSelectAll1: TEditSelectAll
+      Category = #32232#38598
+      Caption = #12377#12409#12390#36984#25246'(&A)'
+      Hint = #12377#12409#12390#36984#25246'|'#12489#12461#12517#12513#12531#12488#20840#20307#12434#36984#25246#12375#12414#12377
+      ShortCut = 16449
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 112
+    Top = 192
+    object N1: TMenuItem
+      Caption = #21066#38500
+      OnClick = N1Click
     end
   end
 end
