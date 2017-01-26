@@ -105,6 +105,7 @@
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Icon_MainIcon>easymemo_Icon.ico</Icon_MainIcon>
         <LinkPackageStatics>rtl.lib;vcl.lib</LinkPackageStatics>
         <UsePackages>false</UsePackages>
         <VerInfo_Locale>1033</VerInfo_Locale>
