@@ -59,7 +59,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
-	if(Memo1->Modified){
+	if(Memo1->Modified && Memo1->Text != ""){
 		if(inEditMode){
 			switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
 			case mrYes:
@@ -117,32 +117,29 @@ void __fastcall TForm1::ListBox1Click(TObject *Sender)
 		return;
 	 }
 
-	 if(Memo1->Modified == true){
-		if(!(Memo1->Text == "")){
-		   if(inEditMode){
-			   switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
-					case mrYes:
-						ListBox1->Items->Strings[lastSelect] = Memo1->Text;
-						break;
-					case mrNo:
-						break;
-					case mrCancel:
-						ListBox1->ItemIndex = lastSelect;
-						return;
-			   }
-		   }else{
-				switch(MessageDlgPos("変更を保存しますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
-					case mrYes:
-						AddMemo(Memo1->Text);
-						break;
-					case mrNo:
-						break;
-					case mrCancel:
-						return;
-			   }
+	 if(Memo1->Modified == true && Memo1->Text != ""){
+		if(inEditMode){
+		   switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
+				case mrYes:
+					ListBox1->Items->Strings[lastSelect] = Memo1->Text;
+					break;
+				case mrNo:
+					break;
+				case mrCancel:
+					ListBox1->ItemIndex = lastSelect;
+					return;
+		   }
+		}else{
+			switch(MessageDlgPos("変更を保存しますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
+				case mrYes:
+					AddMemo(Memo1->Text);
+					break;
+				case mrNo:
+					break;
+				case mrCancel:
+					return;
 		   }
 		}
-
 	 }
 	 Memo1->Text = ListBox1->Items->Strings[ListBox1->ItemIndex];
 	 lastSelect = ListBox1->ItemIndex;
@@ -159,7 +156,7 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-   if(!(Memo1->Text == "") && Memo1->Modified == true){
+   if(Memo1->Text != "" && Memo1->Modified == true){
 	   switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbOKCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
 			case mrOk:
 				ListBox1->Items->Strings[ListBox1->ItemIndex] = Memo1->Text;
@@ -189,7 +186,7 @@ void __fastcall TForm1::AddMemo(UnicodeString s)
 
 void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
 {
-	if(Memo1->Modified){
+	if(Memo1->Modified && Memo1->Text != ""){
 		if(inEditMode){
 		   switch(MessageDlgPos("変更を上書きしますか？",mtConfirmation, mbYesNoCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3)){
 				case mrYes:
