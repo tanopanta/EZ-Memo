@@ -34,7 +34,6 @@ object Form1: TForm1
     ScrollBars = ssVertical
     TabOrder = 1
     WantTabs = True
-    WordWrap = False
   end
   object Panel1: TPanel
     Left = 0
@@ -44,10 +43,11 @@ object Form1: TForm1
     Align = alTop
     TabOrder = 0
     object Button2: TButton
-      Left = 0
+      Left = 1
       Top = 1
       Width = 75
-      Height = 25
+      Height = 23
+      Align = alLeft
       Caption = 'Delete'
       TabOrder = 0
       OnClick = Button2Click
@@ -84,19 +84,21 @@ object Form1: TForm1
       OnClick = Button5Click
     end
     object Button4: TButton
-      Left = 81
+      Left = 76
       Top = 1
       Width = 33
-      Height = 25
+      Height = 23
+      Align = alLeft
       Caption = #8593
       TabOrder = 4
       OnClick = Button4Click
     end
     object Button6: TButton
-      Left = 111
+      Left = 109
       Top = 1
       Width = 33
-      Height = 25
+      Height = 23
+      Align = alLeft
       Caption = #8595
       TabOrder = 5
       OnClick = Button6Click
