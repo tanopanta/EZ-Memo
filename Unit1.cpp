@@ -252,3 +252,13 @@ void __fastcall TForm1::Button6Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TForm1::MoveTopExecute(TObject *Sender)
+{
+	if(ListBox1->ItemIndex > 0){
+		ListBox1->Items->Move(ListBox1->ItemIndex,0);
+		ListBox1->ItemIndex = 0;
+	}
+}
+//---------------------------------------------------------------------------
+

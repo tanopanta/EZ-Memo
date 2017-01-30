@@ -134,13 +134,22 @@ object Form1: TForm1
       Hint = #12377#12409#12390#36984#25246'|'#12489#12461#12517#12513#12531#12488#20840#20307#12434#36984#25246#12375#12414#12377
       ShortCut = 16449
     end
+    object MoveTop: TAction
+      Category = #32232#38598
+      Caption = 'MoveTop'
+      OnExecute = MoveTopExecute
+    end
   end
   object PopupMenu1: TPopupMenu
     Left = 112
     Top = 192
     object N1: TMenuItem
-      Caption = #21066#38500
+      Caption = #12450#12452#12486#12512#12434#21066#38500
       OnClick = N1Click
+    end
+    object N2: TMenuItem
+      Action = MoveTop
+      Caption = #12450#12452#12486#12512#12434#12488#12483#12503#12408#31227#21205
     end
   end
 end
