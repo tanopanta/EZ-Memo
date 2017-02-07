@@ -33,6 +33,10 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	}__finally{
 		delete sList;
 	}
+
+	if(ParamCount() > 0){
+		Memo1->Lines->LoadFromFile(ParamStr(1));
+	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
