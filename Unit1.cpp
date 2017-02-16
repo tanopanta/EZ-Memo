@@ -266,3 +266,9 @@ void __fastcall TForm1::MoveTopExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::Action2Execute(TObject *Sender)
+{
+    Form1->Close();
+}
+//---------------------------------------------------------------------------
+

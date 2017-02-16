@@ -34,6 +34,7 @@ __published:	// IDE で管理されるコンポーネント
 	TButton *Button6;
 	TAction *MoveTop;
 	TMenuItem *N2;
+	TAction *Action2;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
@@ -48,6 +49,7 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall Button4Click(TObject *Sender);
 	void __fastcall Button6Click(TObject *Sender);
 	void __fastcall MoveTopExecute(TObject *Sender);
+	void __fastcall Action2Execute(TObject *Sender);
 private:	// ユーザー宣言
 public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);

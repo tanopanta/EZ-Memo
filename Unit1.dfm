@@ -139,6 +139,11 @@ object Form1: TForm1
       Caption = 'MoveTop'
       OnExecute = MoveTopExecute
     end
+    object Action2: TAction
+      Caption = 'Action2'
+      ShortCut = 16472
+      OnExecute = Action2Execute
+    end
   end
   object PopupMenu1: TPopupMenu
     Left = 112
