@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "Unit1.h"
+#include <IOUtils.hpp>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -57,7 +58,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 	int res = MessageDlgPos("本当に削除しますか？",mtConfirmation, mbOKCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3);
 	if(res == mrOk){
 	   ListBox1->Items->Delete(ListBox1->ItemIndex);
-       NewMemo();
+	   NewMemo();
 	}
 }
 //---------------------------------------------------------------------------
@@ -269,6 +270,50 @@ void __fastcall TForm1::MoveTopExecute(TObject *Sender)
 void __fastcall TForm1::Action2Execute(TObject *Sender)
 {
     Form1->Close();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::N4Click(TObject *Sender)
+{
+	if(ListBox1->Items->Count <= 0){
+		return;
+	}
+	int res = MessageDlgPos("メモの一覧をファイルにエクスポートしますか？",mtConfirmation, mbOKCancel ,0,Form1->Left + Form1->Width/4,Form1->Top + Form1->Height/3);
+	if(res == mrOk){
+        char buff[MAX_PATH];
+		SHGetSpecialFolderPathA(HWND_DESKTOP, &buff[0], CSIDL_DESKTOP, FALSE);
+		UnicodeString desktopPath = String(buff);
+		desktopPath += "\\MemoExport";
+		if(!(DirectoryExists(desktopPath))){
+			if(!(CreateDir(desktopPath))){
+			   ShowMessage(L"フォルダの作成に失敗しました。");
+			   return;
+			}
+		}
+		desktopPath += "\\";
+		for(int i = 0;i < ListBox1->Items->Count;i++){
+			UnicodeString str =  ListBox1->Items->Strings[i];
+			int pos = str.Pos("\r");
+			UnicodeString fName = IntToStr(i);
+			if(pos > 0){
+				fName += str.SubString(0,str.Pos("\r")-1);
+			}else{
+				fName += str;
+			}
+			if(!(Ioutils::TPath::HasValidFileNameChars(fName,false))){
+				fName = IntToStr(i) + "MEMO";
+			}
+			try{
+				TFile::WriteAllText(desktopPath + fName + ".txt",str,TEncoding::UTF8);
+			}catch(...){
+				ShowMessage(L"エクスポートに失敗しました。");
+				return;
+			}
+		}
+		ShowMessage(L"デスクトップにエクスポートしました。");
+	}
+
 }
 //---------------------------------------------------------------------------
 

@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'EasyMemo'
-  ClientHeight = 363
+  ClientHeight = 383
   ClientWidth = 408
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
@@ -20,7 +20,7 @@ object Form1: TForm1
   object Splitter1: TSplitter
     Left = 179
     Top = 25
-    Height = 338
+    Height = 358
     MinSize = 100
     ExplicitLeft = 171
     ExplicitHeight = 400
@@ -29,7 +29,7 @@ object Form1: TForm1
     Left = 182
     Top = 25
     Width = 226
-    Height = 338
+    Height = 358
     Align = alClient
     ScrollBars = ssVertical
     TabOrder = 1
@@ -108,7 +108,7 @@ object Form1: TForm1
     Left = 0
     Top = 25
     Width = 179
-    Height = 338
+    Height = 358
     Align = alLeft
     ItemHeight = 24
     PopupMenu = PopupMenu1
@@ -156,5 +156,16 @@ object Form1: TForm1
       Action = MoveTop
       Caption = #12450#12452#12486#12512#12434#12488#12483#12503#12408#31227#21205
     end
+    object N3: TMenuItem
+      Caption = '-'
+    end
+    object N4: TMenuItem
+      Caption = #12456#12463#12473#12509#12540#12488
+      OnClick = N4Click
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 256
+    Top = 192
   end
 end
