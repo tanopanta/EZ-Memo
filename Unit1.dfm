@@ -34,6 +34,8 @@ object Form1: TForm1
     ScrollBars = ssVertical
     TabOrder = 1
     WantTabs = True
+    ExplicitLeft = 185
+    ExplicitTop = 30
   end
   object Panel1: TPanel
     Left = 0

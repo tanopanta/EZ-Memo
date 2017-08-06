@@ -60,7 +60,8 @@ public:		// ÉÜÅ[ÉUÅ[êÈåæ
 	__fastcall TForm1(TComponent* Owner);
 	void __fastcall SaveFile();
 	void __fastcall NewMemo();
-    void __fastcall AddMemo(UnicodeString s);
+	void __fastcall AddMemo(UnicodeString s);
+    bool __fastcall MemoKuhaku();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
